@@ -37,3 +37,15 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
+var number = 0.2
+const tick = () =>
+{
+    // Render
+    renderer.render(scene, camera)
+    mesh.position.y = Math.cos(number)
+    number += 0.05
+    // Call tick again on the next frame
+    window.requestAnimationFrame(tick)
+}
+
+tick()
